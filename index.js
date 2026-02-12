@@ -1,11 +1,11 @@
 const express = require("express");
+const serverless = require("serverless-http");
+
 const app = express();
-const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.json({ message: "Hello From lambda server !" });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// ❌ NO app.listen
+module.exports.handler = serverless(app);
