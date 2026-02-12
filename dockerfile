@@ -1,5 +1,5 @@
 FROM public.ecr.aws/lambda/nodejs:22
-WORKDIR /app
+WORKDIR /var/task
 COPY package*.json ./
 RUN npm install
 COPY . .
